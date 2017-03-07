@@ -1,0 +1,26 @@
+<% include partials/header.ejs %>
+<h1>List of cars from database</h1>
+<a href="/cars/add">Add Car</a>
+<table class="table table-striped">
+    <tr>
+        <th>Color</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Automatic</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <% cars.forEach(function(car){ %>
+        <tr>
+            <td><%= car.color %></td>
+            <td><%= car.make %></td>
+            <td><%= car.model %></td>
+            <td><%= car.year %></td>
+            <td><%= car.isAutomatic %></td>
+            <td><a href="/cars/<%= car._id %>">Edit</a></td>
+            <td><a class="confirmation" href="/cars/delete/<%= car._id %>">Delete</a></td>
+        </tr>
+    <% }) %>
+</table>
+<% include partials/footer.ejs %>
